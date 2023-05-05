@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: lightgreen;
 }
 
 .App-logo {
@@ -47,4 +48,19 @@
   border: 1px solid black;
   width: 50px;
   height: 50px;
+}
+
+.circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 5px;
+}
+
+.black {
+  background-color: black;
+}
+
+.white {
+  background-color: white;
 }
