@@ -46,6 +46,8 @@ export const App = () => {
     } else {
       newGrid[index] = newGrid[index] === "black" ? "white" : null;
     }
+    //TODO: コマをひっくり返す処理
+    //TODO: 置ける場所を制限する処理
     //盤面を保存する
     setGrid(newGrid);
   };
