@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import "./App.css";
+import { useState, useEffect } from 'react';
+import './App.css';
 
 export const App = () => {
   //配列にnullを64個設定する
@@ -8,10 +8,10 @@ export const App = () => {
   //初期の盤面を作成
   useEffect(() => {
     const newGrid = [...grid];
-    newGrid[27] = "black";
-    newGrid[28] = "white";
-    newGrid[35] = "white";
-    newGrid[36] = "black";
+    newGrid[27] = 'black';
+    newGrid[28] = 'white';
+    newGrid[35] = 'white';
+    newGrid[36] = 'black';
     setGrid(newGrid);
   }, []);
 
@@ -25,11 +25,7 @@ export const App = () => {
       <div key={index} className="cell" onClick={() => handleCellClick(index)}>
         {/* cellがnullでない場合、押下したマス目にclassNameを付与しコマを描写する */}
         {/* cellの値によってclassNameを動的に変更する */}
-        {cell && (
-          <div
-            className={`circle ${cell === "black" ? "black" : "white"}`}
-          ></div>
-        )}
+        {cell && <div className={`circle ${cell === 'black' ? 'black' : 'white'}`}></div>}
       </div>
     ));
   };
@@ -40,11 +36,11 @@ export const App = () => {
     const newGrid = [...grid];
     //押下したマス目が黒でも白でもなかった場合、黒色にする
     if (!newGrid[index]) {
-      newGrid[index] = "black";
+      newGrid[index] = 'black';
       //入力されていた文字が黒色だった場合は、白色に変更する。
       //白だった場合は、nullとしコマの描写を消す
     } else {
-      newGrid[index] = newGrid[index] === "black" ? "white" : null;
+      newGrid[index] = newGrid[index] === 'black' ? 'white' : null;
     }
     //TODO: コマをひっくり返す処理
     //TODO: 置ける場所を制限する処理
