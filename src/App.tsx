@@ -1,9 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 
 export const App = () => {
   //配列にnullを64個設定する
   const [grid, setGrid] = useState<any>(Array(64).fill(null));
+
+  //初期の盤面を作成
+  useEffect(() => {
+    const newGrid = [...grid];
+    newGrid[27] = "black";
+    newGrid[28] = "white";
+    newGrid[35] = "white";
+    newGrid[36] = "black";
+    setGrid(newGrid);
+  }, []);
 
   //マス目の描写とマス目を押下時に黒色のコマを表示
   const createGrid = () => {
