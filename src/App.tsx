@@ -25,6 +25,7 @@ export const App = () => {
       <div key={index} className="cell" onClick={() => handleCellClick(index)}>
         {/* cellがnullでない場合、押下したマス目にclassNameを付与しコマを描写する */}
         {/* cellの値によってclassNameを動的に変更する */}
+        {index}
         {cell && <div className={`circle ${cell === 'black' ? 'black' : 'white'}`}></div>}
       </div>
     ));
@@ -44,7 +45,10 @@ export const App = () => {
     }
     //TODO: コマをひっくり返す処理
     //TODO: 置ける場所を制限する処理
+    //TODO: コマを置く順番を制御する
     //盤面を保存する
+    console.log(grid[index]);
+
     setGrid(newGrid);
   };
 
