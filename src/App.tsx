@@ -35,22 +35,68 @@ export const App = () => {
   const handleCellClick = (index: number) => {
     //更新前の盤面をコピーする
     const newGrid = [...grid];
-    //押下したマス目が黒でも白でもなかった場合、黒色にする
-    if (!newGrid[index]) {
+    //押下したマス目の周辺のマス目にて白があった場合のみ、押下可能
+    if (newGrid[index - 9] === 'white') {
+      //TODO: 白があったので、白があった先に、黒があるか確認する
       newGrid[index] = 'black';
       //入力されていた文字が黒色だった場合は、白色に変更する。
       //白だった場合は、nullとしコマの描写を消す
+    } else if (newGrid[index - 8] === 'white') {
+      newGrid[index] = 'black';
+    } else if (newGrid[index - 8] === 'white') {
+      newGrid[index] = 'black';
+    } else if (newGrid[index - 7] === 'white') {
+      newGrid[index] = 'black';
+      console.log('a');
+      console.log(newGrid[index - 7]);
+    } else if (newGrid[index + 1] === 'white') {
+      let nums = index;
+      //TODO: マジックナンバーを修正する
+      for (nums + 1; nums < 39; nums++) {
+        if (newGrid[nums] === 'black') {
+          newGrid[nums - 1] = 'black';
+          newGrid[index + 1] = 'black';
+          console.log(nums);
+        }
+      }
+
+      newGrid[index] = 'black';
+    } else if (newGrid[index + 9] === 'white') {
+      newGrid[index] = 'black';
+    } else if (newGrid[index + 8] === 'white') {
+      newGrid[index] = 'black';
+    } else if (newGrid[index + 7] === 'white') {
+      newGrid[index] = 'black';
+    } else if (newGrid[index - 1] === 'white') {
+      newGrid[index] = 'black';
     } else {
-      newGrid[index] = newGrid[index] === 'black' ? 'white' : null;
+      alert('置けませんよ');
+      return;
+      // newGrid[index] = newGrid[index] === 'black' ? 'white' : null;
     }
     //TODO: コマをひっくり返す処理
     //TODO: 置ける場所を制限する処理
     //TODO: コマを置く順番を制御する
     //盤面を保存する
-    console.log(grid[index]);
 
     setGrid(newGrid);
   };
+
+  //各方向でひっくり返せるか確認する処理を関数化して、コードを整理しましょう。例えば、checkDirection という関数を作成して、方向と開始位置を引数として与えることができます。
+  const checkDirection = (index: number, direction: string) => {
+    if (direction === 'right') {
+    } else if (direction === 'left') {
+    } else if (direction === 'up') {
+    } else if (direction === 'down') {
+    } else if (direction === 'rightUp') {
+    } else if (direction === 'leftUp') {
+    } else if (direction === 'rightDown') {
+    } else if (direction === 'leftDown') {
+    }
+  };
+
+  //コマをひっくり返す処理は、handleCellClick関数内で行うのではなく、別の関数（例えばflipPieces）を作成しましょう。その関数では、指定されたセルと方向に対してコマをひっくり返します。この関数は、置ける場所を確認する関数と共通のロジックを使用できるため、コードの重複を最小限に抑えることができます。
+  const flipPieces = () => {};
 
   return (
     <div className="App">
