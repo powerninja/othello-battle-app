@@ -167,26 +167,10 @@ export const App = () => {
     }
   };
 
-  //
+  // 盤面の範囲内かどうかを確認する関数
   const isValidPosition = (x: number, y: number) => {
     return x >= 0 && x < BOARD_SIZE && y >= 0 && y < BOARD_SIZE;
   };
-
-  //各方向でひっくり返せるか確認する処理を関数化して、コードを整理しましょう。例えば、checkDirection という関数を作成して、方向と開始位置を引数として与えることができます。
-  const checkDirection = (index: number, direction: string) => {
-    if (direction === 'right') {
-    } else if (direction === 'left') {
-    } else if (direction === 'up') {
-    } else if (direction === 'down') {
-    } else if (direction === 'rightUp') {
-    } else if (direction === 'leftUp') {
-    } else if (direction === 'rightDown') {
-    } else if (direction === 'leftDown') {
-    }
-  };
-
-  //コマをひっくり返す処理は、handleCellClick関数内で行うのではなく、別の関数（例えばflipPieces）を作成しましょう。その関数では、指定されたセルと方向に対してコマをひっくり返します。この関数は、置ける場所を確認する関数と共通のロジックを使用できるため、コードの重複を最小限に抑えることができます。
-  const flipPieces = () => {};
 
   return (
     <div className="App">
